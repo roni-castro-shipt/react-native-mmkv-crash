@@ -41,10 +41,10 @@ class MainApplication : Application(), ReactApplication {
     // mmkv
     val rootDir = MMKV.initialize(this)
     println("mmkv root: $rootDir")
-    // val mmkv = MMKV.defaultMMKV()
-    // val storageKey = "user_input"
-    // val userInput = mmkv.getString(storageKey, null)
-    // System.out.println("📦 MMKV Stored Value: " + userInput);
+    val mmkv = MMKV.defaultMMKV()
+    val storageKey = "user_input"
+    val userInput = mmkv.getString(storageKey, null)
+    println("📦 MMKV Stored Value: $userInput");
 
     if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
       // If you opted-in for the New Architecture, we load the native entry point for this app.
