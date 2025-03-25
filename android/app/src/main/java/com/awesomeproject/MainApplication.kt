@@ -11,6 +11,7 @@ import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.soloader.OpenSourceMergedSoMapping
 import com.facebook.soloader.SoLoader
+import com.tencent.mmkv.MMKV
 
 class MainApplication : Application(), ReactApplication {
 
@@ -36,6 +37,15 @@ class MainApplication : Application(), ReactApplication {
   override fun onCreate() {
     super.onCreate()
     SoLoader.init(this, OpenSourceMergedSoMapping)
+
+    // mmkv
+    val rootDir = MMKV.initialize(this)
+    println("mmkv root: $rootDir")
+    // val mmkv = MMKV.defaultMMKV()
+    // val storageKey = "user_input"
+    // val userInput = mmkv.getString(storageKey, null)
+    // System.out.println("📦 MMKV Stored Value: " + userInput);
+
     if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
       // If you opted-in for the New Architecture, we load the native entry point for this app.
       load()
