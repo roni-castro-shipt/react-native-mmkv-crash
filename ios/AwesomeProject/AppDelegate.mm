@@ -14,9 +14,9 @@
 
   [MMKV initializeMMKV:nil];
   MMKV *mmkv = [MMKV defaultMMKV];
-  NSString *storageKey = [NSString stringWithFormat:@"user_input"];
-  NSString *userInput = [mmkv getStringForKey:storageKey];
-  NSLog(@"📦 MMKV Stored Value: %@", userInput ?: @"No data found");
+  // NSString *storageKey = [NSString stringWithFormat:@"user_input"];
+  // NSString *userInput = [mmkv getStringForKey:storageKey];
+  // NSLog(@"📦 MMKV Stored Value: %@", userInput ?: @"No data found");
 
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];

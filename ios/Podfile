@@ -23,7 +23,7 @@ target 'AwesomeProject' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  pod 'MMKV', '2.1.0'
+  pod 'MMKV', '2.0.0'
 
   target 'AwesomeProjectTests' do
     inherit! :complete
