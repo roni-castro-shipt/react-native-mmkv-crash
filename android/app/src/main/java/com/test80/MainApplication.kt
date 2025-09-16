@@ -9,6 +9,7 @@ import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
+import com.tencent.mmkv.MMKV
 
 class MainApplication : Application(), ReactApplication {
 
@@ -34,5 +35,13 @@ class MainApplication : Application(), ReactApplication {
   override fun onCreate() {
     super.onCreate()
     loadReactNative(this)
+
+    // mmkv
+    val rootDir = MMKV.initialize(this)
+    println("mmkv root: $rootDir")
+    val mmkv = MMKV.defaultMMKV()
+    val storageKey = "user_input"
+    val userInput = mmkv.getString(storageKey, null)
+    println("📦 MMKV Stored Value: $userInput");
   }
 }

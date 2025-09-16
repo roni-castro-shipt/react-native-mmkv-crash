@@ -11,6 +11,68 @@ PODS:
   - MMKV (2.2.3):
     - MMKVCore (~> 2.2.3)
   - MMKVCore (2.2.3)
+  - NitroMmkv (4.0.0-beta.9):
+    - boost
+    - DoubleConversion
+    - fast_float
+    - fmt
+    - glog
+    - hermes-engine
+    - MMKVCore (>= 2.2.3)
+    - NitroModules
+    - RCT-Folly
+    - RCT-Folly/Fabric
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - SocketRocket
+    - Yoga
+  - NitroModules (0.29.6):
+    - boost
+    - DoubleConversion
+    - fast_float
+    - fmt
+    - glog
+    - hermes-engine
+    - RCT-Folly
+    - RCT-Folly/Fabric
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - SocketRocket
+    - Yoga
   - RCT-Folly (2024.11.18.00):
     - boost
     - DoubleConversion
@@ -1651,35 +1713,6 @@ PODS:
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
     - SocketRocket
-  - react-native-mmkv (3.3.1):
-    - boost
-    - DoubleConversion
-    - fast_float
-    - fmt
-    - glog
-    - hermes-engine
-    - RCT-Folly
-    - RCT-Folly/Fabric
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-hermes
-    - React-ImageManager
-    - React-jsi
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-renderercss
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - SocketRocket
-    - Yoga
   - React-NativeModulesApple (0.80.2):
     - boost
     - DoubleConversion
@@ -2165,7 +2198,10 @@ DEPENDENCIES:
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
-  - MMKV (= 2.2.3)
+  - MMKV
+  - MMKVCore
+  - NitroMmkv (from `../node_modules/react-native-mmkv`)
+  - NitroModules (from `../node_modules/react-native-nitro-modules`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
   - RCTRequired (from `../node_modules/react-native/Libraries/Required`)
@@ -2200,7 +2236,6 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
-  - react-native-mmkv (from `../node_modules/react-native-mmkv`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-oscompat (from `../node_modules/react-native/ReactCommon/oscompat`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -2257,6 +2292,10 @@ EXTERNAL SOURCES:
   hermes-engine:
     :podspec: "../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec"
     :tag: hermes-2025-07-24-RNv0.80.2-5c7dbc0a78cb2d2a8bc81c41c617c3abecf209ff
+  NitroMmkv:
+    :path: "../node_modules/react-native-mmkv"
+  NitroModules:
+    :path: "../node_modules/react-native-nitro-modules"
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
   RCTDeprecation:
@@ -2323,8 +2362,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   React-microtasksnativemodule:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
-  react-native-mmkv:
-    :path: "../node_modules/react-native-mmkv"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-oscompat:
@@ -2400,6 +2437,8 @@ SPEC CHECKSUMS:
   hermes-engine: bbc1152da7d2d40f9e59c28acc6576fcf5d28e2a
   MMKV: 941e8774da0e6fdf12c6b3fcc833ca687ae5a42d
   MMKVCore: 6d5cc1bacce539f4c974985dfe646fb65a5d27d2
+  NitroMmkv: ae26a05a250382bfeb6ec786b3e55e596658b277
+  NitroModules: a2d4a44a2d7e8aa11d1dff7f2497759bb49d26f4
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: 300c5eb91114d4339b0bb39505d0f4824d7299b7
   RCTRequired: e0446b01093475b7082fbeee5d1ef4ad1fe20ac4
@@ -2433,7 +2472,6 @@ SPEC CHECKSUMS:
   React-logger: 7cfc7b1ae1f8e5fe5097f9c746137cc3a8fad4ce
   React-Mapbuffer: 7018c5b7da5b13ed22fe55dae51d50187a00b2d7
   React-microtasksnativemodule: 8ff9cb220a8efa625b5885996bd69e69db9edf02
-  react-native-mmkv: 17296aa586de681bc2a40c522bb7d292acdd18be
   React-NativeModulesApple: 37c08c3c54db55854de816b0df0f3683832be35a
   React-oscompat: 56d6de59f9ae95cd006a1c40be2cde83bc06a4e1
   React-perflogger: 4008bd05a8b6c157b06608c0ea0b8bd5d9c5e6c9
@@ -2468,6 +2506,6 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: a742cc68e8366fcfc681808162492bc0aa7a9498
 
-PODFILE CHECKSUM: 0ff83bf9a1b1c781d9521f96acf319b9b58993e3
+PODFILE CHECKSUM: 48e071577e6ac7f5847556295cf82f8fd8b9a379
 
 COCOAPODS: 1.14.3
