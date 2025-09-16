@@ -29,6 +29,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       launchOptions: launchOptions
     )
 
+    // Initialize MMKV
+     MMKV.initialize(rootDir: nil)
+     // Get default instance
+     let mmkv = MMKV.default()
+     // Example usage
+     let storageKey = "user_input"
+     let userInput = mmkv?.string(forKey: storageKey)
+     print("📦 MMKV Stored Value: \(userInput ?? "No data found")")
+
     return true
   }
 }
